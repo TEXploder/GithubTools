@@ -1,20 +1,109 @@
-# GithubTools
+# GitHub Tools
 
+<p align="center">
+  <a href="https://github.com/TEXploder"><img src="https://cdn.simpleicons.org/github" alt="GitHub" width="38" height="38" /></a>
+  <a href="https://asashin.com/"><img src="https://cdn.simpleicons.org/firefoxbrowser" alt="Website" width="38" height="38" /></a>
+  <a href="https://discord.com/"><img src="https://cdn.simpleicons.org/discord" alt="Discord" width="38" height="38" /></a>
+  <a href="https://ur-link.me/texploder"><img src="https://cdn.simpleicons.org/linktree" alt="Contact" width="38" height="38" /></a>
+</p>
 
-<p align="center"><a href="https://github.com/TEXploder"><img src="https://cdn.simpleicons.org/github" alt="GitHub" width="38" height="38" /></a> <a href="https://asashin.com/"><img src="https://cdn.simpleicons.org/firefoxbrowser" alt="Website" width="38" height="38" /></a> <a href="https://discord.com/"><img src="https://cdn.simpleicons.org/discord" alt="Discord" width="38" height="38" /></a> <a href="https://ur-link.me/texploder"><img src="https://cdn.simpleicons.org/linktree" alt="Contact" width="38" height="38" /></a></p>
+Custom README and GitHub profile utilities by TEXploder.
 
-Test commit from the local Git setup.
+Live site:
 
-[![README Pulse SVG](https://gh.tex-api.com/svg/pulse?title=GitHub+Tools+by+TEXploder&subtitle=Custom+README+utilities+running+on+gh.tex-api.com&status=profile-ready&theme=liquid&primary=8d62ff&secondary=05050d&text=f5f3ff&scale=130)](https://gh.tex-api.com)
+```text
+https://gh.tex-api.com
+```
 
-[![README Pulse SVG](https://gh.tex-api.com/svg/pulse?title=GitHub+Tools+by+TEXploder&subtitle=Custom+README+utilities+running+on+gh.tex-api.com&status=profile-ready&theme=liquid&primary=8d62ff&secondary=05050d&text=f5f3ff&scale=85)](https://gh.tex-api.com)
+This is the small utility hub I use for custom README SVGs, profile cards,
+badges, social rows, terminal demos, and quick README previews. The main point
+is simple: make README stuff that runs from my own domain instead of depending
+on random generator links everywhere.
 
-[![README Pulse SVG](https://gh.tex-api.com/svg/pulse?title=GitHub+Tools+by+TEXploder&subtitle=Custom+README+utilities+running+on+gh.tex-api.com&status=profile-ready&width=100&height=50&theme=liquid&primary=8d62ff&secondary=05050d&text=f5f3ff)](https://gh.tex-api.com)
+## Quick Preview
 
-[![README Pulse SVG](https://gh.tex-api.com/svg/pulse?title=GitHub+Tools+by+TEXploder&subtitle=Custom+README+utilities+running+on+gh.tex-api.com&status=profile-ready&theme=liquid&primary=8d62ff&secondary=05050d&text=f5f3ff&scale=50)](https://gh.tex-api.com)
-# TESTS:
-[![README Pulse SVG](https://gh.tex-api.com/svg/pulse?theme=liquid&title=Test+Liquid+Glass&subtitle=Custom+README+utilities+running+on+gh.tex-api.com&status=profile-ready&primary=8d62ff&secondary=05050d&text=f5f3ff&width=760&height=220)](https://gh.tex-api.com)
+[![README Pulse SVG](https://gh.tex-api.com/svg/pulse?title=GitHub+Tools+by+TEXploder&subtitle=Custom+README+utilities+running+on+gh.tex-api.com&status=profile-ready&theme=liquid&primary=8d62ff&secondary=05050d&text=f5f3ff&scale=100)](https://gh.tex-api.com)
 
-[![README Pulse SVG](https://gh.tex-api.com/svg/pulse?theme=clean&title=Test+Clean&subtitle=Custom+README+utilities+running+on+gh.tex-api.com&status=profile-ready&primary=9b5cff&secondary=0e1a3d&text=f5f7ff&width=760&height=220)](https://gh.tex-api.com)
+## Tools
 
-[![README Pulse SVG](https://gh.tex-api.com/svg/pulse?theme=matrix&title=Test+Matrix&subtitle=Custom+README+utilities+running+on+gh.tex-api.com&status=profile-ready&primary=37ff8b&secondary=031007&text=d9ffe8&width=760&height=220)](https://gh.tex-api.com)
+- Pulse Banner Builder
+- Repo Launch Card
+- Custom Badge Studio
+- Social Link Row
+- Terminal Demo
+- Project Timeline
+- README Preview Sandbox
+
+## Themes
+
+The SVG tools share the same theme setup:
+
+- `clean`
+- `liquid`
+- `matrix`
+
+Each tool supports editable primary, secondary, and text colors. Most tools also
+support a proportional `scale` value, so the format stays stable while the
+output size changes.
+
+## SVG Endpoints
+
+```text
+/svg/pulse
+/svg/repo-card
+/svg/badge
+/svg/social-row
+/svg/social-icon
+/svg/terminal-demo
+/svg/project-timeline
+```
+
+## Examples
+
+```md
+![Terminal Demo](https://gh.tex-api.com/svg/terminal-demo?theme=clean&command=npm%20install%20github-tools%0Anpm%20run%20generate&output=ready%3A%20README%20utilities%20generated&scale=100)
+```
+
+```md
+![Project Timeline](https://gh.tex-api.com/svg/project-timeline?theme=liquid&title=Build%20Path&steps=Idea,Build,Preview,Ship&active=3&scale=100)
+```
+
+## Test README
+
+There is a TEXploder-style profile test file here:
+
+```text
+README_TEXploder_TEST.md
+```
+
+It is based on my profile README style and uses the newer tools from this hub:
+Pulse, Social Row, Repo Card, Badge, Terminal Demo, and Timeline.
+
+## Privacy and Legal
+
+- Privacy policy: `https://gh.tex-api.com/datenschutz.html`
+- Imprint: `https://impressum.texploder.com`
+
+## Deployment
+
+The app is a plain Node server behind the existing server routing.
+
+Local container service:
+
+```text
+githubtools-web
+```
+
+Restart:
+
+```bash
+docker compose restart githubtools-web
+```
+
+Basic checks:
+
+```bash
+node --check server.js
+node --check public/script.js
+curl https://gh.tex-api.com/healthz
+```
