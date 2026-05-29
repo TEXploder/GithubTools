@@ -1,12 +1,5 @@
 # GitHub Tools
 
-<p align="center">
-  <a href="https://github.com/TEXploder"><img src="https://cdn.simpleicons.org/github" alt="GitHub" width="38" height="38" /></a>
-  <a href="https://asashin.com/"><img src="https://cdn.simpleicons.org/firefoxbrowser" alt="Website" width="38" height="38" /></a>
-  <a href="https://discord.com/"><img src="https://cdn.simpleicons.org/discord" alt="Discord" width="38" height="38" /></a>
-  <a href="https://ur-link.me/texploder"><img src="https://cdn.simpleicons.org/linktree" alt="Contact" width="38" height="38" /></a>
-</p>
-
 Custom README and GitHub profile utilities by TEXploder.
 
 Live site:
