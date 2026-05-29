@@ -84,6 +84,14 @@ Pulse, Social Row, Repo Card, Badge, Terminal Demo, and Timeline.
 - Privacy policy: `https://gh.tex-api.com/datenschutz.html`
 - Imprint: `https://impressum.texploder.com`
 
+## License
+
+This project is licensed under `CC BY 4.0`.
+
+You can use, copy, modify, and share it for basically any purpose, including
+commercial use. Just give credit to `TEXploder`, link back to this repository
+where reasonable, and keep the license notice.
+
 ## Deployment
 
 The app is a plain Node server behind the existing server routing.
