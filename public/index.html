@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="GitHub Tools by TEXploder runs custom README and profile SVG utilities on gh.tex-api.com."
+    />
+    <meta name="theme-color" content="#080d22" />
+    <title>GitHub Tools by TEXploder</title>
+    <link rel="preload" href="/assets/github-tools-hero.png" as="image" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="GitHub Tools home">
+        <span class="brand-mark">GT</span>
+        <span>GitHub Tools</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#tools">Tools</a>
+        <a href="#readme-preview">README Preview</a>
+        <a href="https://github.com/TEXploder/GithubTools">Repo</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="tools" class="workspace" aria-labelledby="tool-title">
+        <img
+          class="workspace-image"
+          src="/assets/github-tools-hero.png"
+          alt="Dark developer interface with repository graphs, widgets, and code panels"
+        />
+        <div class="workspace-overlay"></div>
+
+        <div class="page-width workspace-grid">
+          <div class="workspace-copy reveal">
+            <p class="eyebrow">GitHub Utility Hub</p>
+            <h1 id="tool-title">README SVG Tools</h1>
+            <p class="hero-lead">
+              Custom README banners, repo launch cards, badges, and preview
+              snippets served from your own domain.
+            </p>
+            <div class="hero-meta" aria-label="Tool scope">
+              <span>Own SVG endpoints</span>
+              <span>gh.tex-api.com</span>
+              <span>Copy-ready Markdown</span>
+            </div>
+          </div>
+
+          <form id="utilityBuilder" class="generator-panel reveal" aria-label="GitHub README utility builder">
+            <div class="panel-head">
+              <div>
+                <p class="panel-kicker">Generator</p>
+                <h2 id="builderTitle">Pulse Banner Builder</h2>
+              </div>
+              <button class="button button-primary" type="button" id="copyMarkdown">
+                Copy
+              </button>
+            </div>
+
+            <fieldset class="tool-field field-wide">
+              <legend>Tool</legend>
+              <div class="tool-options">
+                <label>
+                  <input type="radio" name="tool" value="pulse" checked />
+                  <span>Pulse</span>
+                </label>
+                <label>
+                  <input type="radio" name="tool" value="repo" />
+                  <span>Repo Card</span>
+                </label>
+                <label>
+                  <input type="radio" name="tool" value="badge" />
+                  <span>Badge</span>
+                </label>
+                <label>
+                  <input type="radio" name="tool" value="social" />
+                  <span>Social Row</span>
+                </label>
+                <label>
+                  <input type="radio" name="tool" value="terminal" />
+                  <span>Terminal</span>
+                </label>
+                <label>
+                  <input type="radio" name="tool" value="timeline" />
+                  <span>Timeline</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="preview-window" aria-live="polite">
+              <img id="toolPreview" src="/svg/pulse" alt="Generated GitHub utility SVG preview" />
+              <div id="socialPreview" class="social-preview" hidden></div>
+            </div>
+
+            <div class="controls-grid">
+              <fieldset class="theme-field field-wide">
+                <legend>Theme</legend>
+                <div class="theme-options">
+                  <label>
+                    <input type="radio" name="theme" value="liquid" checked />
+                    <span>Liquid glass</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="theme" value="clean" />
+                    <span>Clean</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="theme" value="matrix" />
+                    <span>Matrix</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="tool-panel" data-tool-panel="pulse">
+                <label class="field field-wide" for="titleInput">
+                  <span>Title</span>
+                  <input id="titleInput" type="text" value="GitHub Tools by TEXploder" maxlength="72" />
+                </label>
+
+                <label class="field field-wide" for="subtitleInput">
+                  <span>Subtitle optional</span>
+                  <input
+                    id="subtitleInput"
+                    type="text"
+                    value="Custom README utilities running on gh.tex-api.com"
+                    maxlength="96"
+                  />
+                </label>
+
+                <label class="field" for="statusInput">
+                  <span>Status optional</span>
+                  <input id="statusInput" type="text" value="profile-ready" maxlength="36" />
+                </label>
+              </div>
+
+              <div class="tool-panel" data-tool-panel="repo" hidden>
+                <label class="field field-wide" for="repoInput">
+                  <span>Repository</span>
+                  <input id="repoInput" type="text" value="TEXploder/GithubTools" maxlength="56" />
+                </label>
+
+                <label class="field field-wide" for="repoTaglineInput">
+                  <span>Tagline</span>
+                  <input
+                    id="repoTaglineInput"
+                    type="text"
+                    value="README utilities running on gh.tex-api.com"
+                    maxlength="92"
+                  />
+                </label>
+
+                <label class="field field-wide" for="repoLinkInput">
+                  <span>Link optional</span>
+                  <input
+                    id="repoLinkInput"
+                    type="url"
+                    placeholder="auto: https://github.com/TEXploder/GithubTools"
+                    maxlength="160"
+                  />
+                </label>
+
+              </div>
+
+              <div class="tool-panel" data-tool-panel="badge" hidden>
+                <label class="field" for="badgePrefixInput">
+                  <span>Prefix optional</span>
+                  <input id="badgePrefixInput" type="text" value="GT" maxlength="8" />
+                </label>
+
+                <label class="field" for="badgeLabelInput">
+                  <span>Label</span>
+                  <input id="badgeLabelInput" type="text" value="github tools" maxlength="28" />
+                </label>
+
+                <label class="field" for="badgeValueInput">
+                  <span>Value</span>
+                  <input id="badgeValueInput" type="text" value="online" maxlength="28" />
+                </label>
+
+                <label class="field" for="badgeRadiusInput">
+                  <span>Rounding</span>
+                  <input id="badgeRadiusInput" type="number" min="0" max="20" step="1" value="20" />
+                </label>
+              </div>
+
+              <div class="tool-panel" data-tool-panel="social" hidden>
+                <label class="field field-wide" for="socialLabelsInput">
+                  <span>Labels</span>
+                  <input
+                    id="socialLabelsInput"
+                    type="text"
+                    value="GitHub, Website, Discord, Contact"
+                    maxlength="96"
+                  />
+                </label>
+
+                <label class="field field-wide" for="socialIconsInput">
+                  <span>Icon slugs</span>
+                  <input
+                    id="socialIconsInput"
+                    type="text"
+                    value="github, firefoxbrowser, discord, linktree"
+                    maxlength="160"
+                  />
+                </label>
+
+                <label class="field field-wide" for="socialLinksInput">
+                  <span>Links</span>
+                  <input
+                    id="socialLinksInput"
+                    type="text"
+                    value="https://github.com/TEXploder, https://asashin.com, https://discord.com, https://ur-link.me/texploder"
+                    maxlength="260"
+                  />
+                </label>
+              </div>
+
+              <div class="tool-panel" data-tool-panel="terminal" hidden>
+                <label class="field field-wide" for="terminalCommandInput">
+                  <span>Command</span>
+                  <textarea id="terminalCommandInput" maxlength="180" rows="3">npm install github-tools
+npm run generate</textarea>
+                </label>
+
+                <label class="field field-wide" for="terminalOutputInput">
+                  <span>Output</span>
+                  <textarea id="terminalOutputInput" maxlength="220" rows="3">resolved packages
+ready: README utilities generated</textarea>
+                </label>
+              </div>
+
+              <div class="tool-panel" data-tool-panel="timeline" hidden>
+                <label class="field field-wide" for="timelineTitleInput">
+                  <span>Title</span>
+                  <input id="timelineTitleInput" type="text" value="Project Timeline" maxlength="52" />
+                </label>
+
+                <label class="field field-wide" for="timelineStepsInput">
+                  <span>Steps</span>
+                  <input id="timelineStepsInput" type="text" value="Plan, Build, Preview, Ship" maxlength="120" />
+                </label>
+
+                <label class="field" for="timelineActiveInput">
+                  <span>Active step</span>
+                  <input id="timelineActiveInput" type="number" min="1" max="6" step="1" value="3" />
+                </label>
+              </div>
+
+              <label class="field" for="primaryInput">
+                <span>Primary</span>
+                <input id="primaryInput" type="color" value="#8d62ff" />
+              </label>
+
+              <label class="field" for="secondaryInput">
+                <span>Secondary</span>
+                <input id="secondaryInput" type="color" value="#05050d" />
+              </label>
+
+              <label class="field" for="textInput">
+                <span>Text</span>
+                <input id="textInput" type="color" value="#f5f3ff" />
+              </label>
+
+              <label class="field scale-field field-wide" for="scaleInput">
+                <span>
+                  Scale
+                  <output id="scaleOutput" for="scaleInput">100%</output>
+                </span>
+                <input id="scaleInput" type="range" min="50" max="130" step="5" value="100" />
+                <small id="scaleWarning" class="scale-warning" hidden>
+                  Warning: Text may become hard to read on GitHub below 80%.
+                </small>
+              </label>
+            </div>
+
+            <label class="field output-field" for="markdownOutput">
+              <span>Markdown</span>
+              <input id="markdownOutput" type="text" readonly />
+            </label>
+          </form>
+        </div>
+      </section>
+
+      <section id="readme-preview" class="readme-section" aria-labelledby="readme-title">
+        <div class="page-width">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">README Preview Sandbox</p>
+              <h2 id="readme-title">Preview the generated Markdown</h2>
+            </div>
+            <div class="button-row">
+              <button class="button" type="button" id="syncReadme">Sync</button>
+              <button class="button button-primary" type="button" id="copyReadme">Copy README</button>
+            </div>
+          </div>
+
+          <div class="sandbox-grid reveal">
+            <label class="field readme-editor" for="readmeSandboxInput">
+              <span>README Markdown</span>
+              <textarea id="readmeSandboxInput" spellcheck="false"></textarea>
+            </label>
+
+            <article id="readmeSandboxPreview" class="readme-preview-shell" aria-live="polite"></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-width footer-inner">
+        <span>GitHub Tools by TEXploder</span>
+        <nav class="footer-links" aria-label="Legal and project links">
+          <a href="https://github.com/TEXploder/GithubTools">GitHub Repo</a>
+          <a href="/datenschutz.html">Datenschutzerklärung</a>
+          <a href="https://impressum.texploder.com" rel="noopener noreferrer">Impressum</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+  </body>
+</html>
